@@ -1,0 +1,81 @@
+# 🚀 Sådan sætter du din betalingsside op
+
+## Hvad du skal bruge
+- En gratis konto på [render.com](https://render.com)
+- En gratis konto på [github.com](https://github.com)
+- Din Stripe Secret Key (fra Stripe Dashboard → Developers → API keys)
+
+---
+
+## Trin 1 — Opret en GitHub-konto
+1. Gå til [github.com](https://github.com)
+2. Klik **Sign up** og opret en gratis konto
+
+---
+
+## Trin 2 — Upload filerne til GitHub
+1. Log ind på GitHub
+2. Klik på **+** øverst til højre → **New repository**
+3. Giv den navnet `stripe-betalingsside`
+4. Klik **Create repository**
+5. Klik på **uploading an existing file**
+6. Upload disse filer (bevar mappestrukturen):
+   - `server.js`
+   - `package.json`
+   - `public/index.html`
+7. Klik **Commit changes**
+
+---
+
+## Trin 3 — Opret en konto på Render
+1. Gå til [render.com](https://render.com)
+2. Klik **Get Started for Free**
+3. Log ind med din GitHub-konto
+
+---
+
+## Trin 4 — Opret en web service på Render
+1. Klik på **New +** → **Web Service**
+2. Vælg dit GitHub repository `stripe-betalingsside`
+3. Udfyld disse felter:
+   - **Name**: stripe-betalingsside
+   - **Runtime**: Node
+   - **Build Command**: `npm install`
+   - **Start Command**: `node server.js`
+4. Klik **Create Web Service**
+
+---
+
+## Trin 5 — Tilføj din Stripe Secret Key
+Dette er det vigtigste trin — uden din secret key virker betalinger ikke.
+
+1. I Render, gå til din service → **Environment**
+2. Klik **Add Environment Variable**
+3. Sæt:
+   - **Key**: `STRIPE_SECRET_KEY`
+   - **Value**: Din secret key fra Stripe (starter med `sk_live_...`)
+4. Klik **Save Changes**
+
+> ⚠️ Del aldrig din secret key med andre eller læg den i din kode!
+
+---
+
+## Trin 6 — Din side er live! 🎉
+Render giver dig en URL der ligner:
+`https://stripe-betalingsside.onrender.com`
+
+Del den URL med dine kunder, og de kan betale med det samme.
+
+---
+
+## Hvad sker der når nogen betaler?
+1. Kunden udfylder navn, email og beløb
+2. Stripe validerer kortet
+3. Din server trækker beløbet
+4. Kunden modtager en kvittering på email (automatisk fra Stripe)
+5. Du kan se betalingen i dit Stripe Dashboard
+
+---
+
+## Brug for hjælp?
+Spørg Claude hvis du sidder fast på et af trinene!
