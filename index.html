@@ -1,81 +1,1001 @@
-# 🚀 Sådan sætter du din betalingsside op
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>emilklmedia — Meta Ads der virker</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-## Hvad du skal bruge
-- En gratis konto på [render.com](https://render.com)
-- En gratis konto på [github.com](https://github.com)
-- Din Stripe Secret Key (fra Stripe Dashboard → Developers → API keys)
+    :root {
+      --blue: #1877f2;
+      --blue-light: #e7f0fe;
+      --blue-dark: #0d60d0;
+      --grad-start: #1877f2;
+      --grad-end: #a855f7;
+      --text: #0f0f0f;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --white: #ffffff;
+      --green: #10b981;
+    }
 
----
+    html { scroll-behavior: smooth; }
 
-## Trin 1 — Opret en GitHub-konto
-1. Gå til [github.com](https://github.com)
-2. Klik **Sign up** og opret en gratis konto
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
 
----
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 0 2rem;
+    }
 
-## Trin 2 — Upload filerne til GitHub
-1. Log ind på GitHub
-2. Klik på **+** øverst til højre → **New repository**
-3. Giv den navnet `stripe-betalingsside`
-4. Klik **Create repository**
-5. Klik på **uploading an existing file**
-6. Upload disse filer (bevar mappestrukturen):
-   - `server.js`
-   - `package.json`
-   - `public/index.html`
-7. Klik **Commit changes**
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
 
----
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--grad-start), var(--grad-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
 
-## Trin 3 — Opret en konto på Render
-1. Gå til [render.com](https://render.com)
-2. Klik **Get Started for Free**
-3. Log ind med din GitHub-konto
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
 
----
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
 
-## Trin 4 — Opret en web service på Render
-1. Klik på **New +** → **Web Service**
-2. Vælg dit GitHub repository `stripe-betalingsside`
-3. Udfyld disse felter:
-   - **Name**: stripe-betalingsside
-   - **Runtime**: Node
-   - **Build Command**: `npm install`
-   - **Start Command**: `node server.js`
-4. Klik **Create Web Service**
+    .nav-links a:hover { color: var(--text); }
 
----
+    .nav-cta {
+      background: var(--blue);
+      color: var(--white) !important;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
 
-## Trin 5 — Tilføj din Stripe Secret Key
-Dette er det vigtigste trin — uden din secret key virker betalinger ikke.
+    .nav-cta:hover { background: var(--blue-dark) !important; }
 
-1. I Render, gå til din service → **Environment**
-2. Klik **Add Environment Variable**
-3. Sæt:
-   - **Key**: `STRIPE_SECRET_KEY`
-   - **Value**: Din secret key fra Stripe (starter med `sk_live_...`)
-4. Klik **Save Changes**
+    /* ── HERO ── */
+    .hero {
+      padding: 6rem 2rem 5rem;
+      text-align: center;
+      background: linear-gradient(180deg, #f0f6ff 0%, var(--white) 100%);
+    }
 
-> ⚠️ Del aldrig din secret key med andre eller læg den i din kode!
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--blue-light);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
 
----
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+      max-width: 780px;
+      margin: 0 auto 1.25rem;
+    }
 
-## Trin 6 — Din side er live! 🎉
-Render giver dig en URL der ligner:
-`https://stripe-betalingsside.onrender.com`
+    .hero h1 .grad {
+      background: linear-gradient(90deg, var(--grad-start), var(--grad-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-Del den URL med dine kunder, og de kan betale med det samme.
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+    }
 
----
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-## Hvad sker der når nogen betaler?
-1. Kunden udfylder navn, email og beløb
-2. Stripe validerer kortet
-3. Din server trækker beløbet
-4. Kunden modtager en kvittering på email (automatisk fra Stripe)
-5. Du kan se betalingen i dit Stripe Dashboard
+    .btn-primary {
+      background: linear-gradient(90deg, var(--grad-start), var(--grad-end));
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+      box-shadow: 0 4px 18px rgba(24,119,242,0.35);
+    }
 
----
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
 
-## Brug for hjælp?
-Spørg Claude hvis du sidder fast på et af trinene!
+    .btn-secondary {
+      background: var(--white);
+      color: var(--text);
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .btn-secondary:hover { border-color: #aab; transform: translateY(-1px); }
+
+    .hero-social-proof {
+      margin-top: 2.5rem;
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .stars { color: #f59e0b; letter-spacing: 1px; }
+
+    /* Stats strip */
+    .stats-strip {
+      max-width: 860px;
+      margin: 4rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .stat {
+      background: var(--white);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      background: linear-gradient(90deg, var(--grad-start), var(--grad-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ── LOGOS ── */
+    .logos {
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: #fafafa;
+    }
+
+    .logos p {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #9ca3af;
+      margin-bottom: 1.5rem;
+    }
+
+    .logo-row {
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo-item {
+      font-size: 15px;
+      font-weight: 700;
+      color: #d1d5db;
+    }
+
+    /* ── SECTION HELPERS ── */
+    section { padding: 5rem 2rem; }
+
+    .section-label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--blue);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .center { text-align: center; }
+    .center .section-sub { margin: 0 auto; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* ── SERVICES ── */
+    #ydelser { background: var(--white); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .service-card {
+      padding: 2rem;
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+
+    .service-card:hover {
+      border-color: var(--blue);
+      box-shadow: 0 6px 28px rgba(24,119,242,0.1);
+      transform: translateY(-2px);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--blue-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 1.2rem;
+    }
+
+    .service-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ── PROCESS ── */
+    #proces { background: #f8f9ff; }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .process-step { text-align: center; padding: 1.5rem; }
+
+    .step-num {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+      color: var(--white);
+      border-radius: 50%;
+      font-size: 22px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      box-shadow: 0 4px 16px rgba(24,119,242,0.3);
+    }
+
+    .process-step h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .process-step p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* ── RESULTS ── */
+    #resultater { background: var(--white); }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .result-card {
+      padding: 1.75rem;
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .result-card .stars { font-size: 14px; margin-bottom: 0.75rem; display: block; }
+
+    .result-card blockquote {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+
+    .result-metric {
+      display: inline-block;
+      background: #f0fdf4;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .result-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--blue-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--blue);
+      flex-shrink: 0;
+    }
+
+    .author-info strong { display: block; font-size: 14px; font-weight: 700; }
+    .author-info span { font-size: 12px; color: var(--muted); }
+
+    /* ── PRICING ── */
+    #priser { background: #f8f9ff; }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .price-card {
+      padding: 2.25rem 2rem;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      background: var(--white);
+      position: relative;
+    }
+
+    .price-card.popular {
+      border-color: var(--blue);
+      box-shadow: 0 8px 32px rgba(24,119,242,0.15);
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, var(--grad-start), var(--grad-end));
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 3px 14px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .price-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 0.4rem; }
+
+    .price-card .plan-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .price {
+      font-size: 2.6rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 0.25rem;
+    }
+
+    .price sub {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--muted);
+      vertical-align: baseline;
+    }
+
+    .price-note { font-size: 12px; color: var(--muted); margin-bottom: 1.75rem; }
+
+    .price-features { list-style: none; margin-bottom: 2rem; }
+
+    .price-features li {
+      font-size: 14px;
+      padding: 6px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .price-features li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .price-features li.no::before { content: '–'; color: #d1d5db; }
+    .price-features li.no { color: #d1d5db; }
+
+    .btn-full {
+      display: block;
+      text-align: center;
+      padding: 13px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-full.primary {
+      background: linear-gradient(90deg, var(--grad-start), var(--grad-end));
+      color: var(--white);
+      box-shadow: 0 4px 14px rgba(24,119,242,0.3);
+    }
+
+    .btn-full.primary:hover { opacity: 0.9; }
+
+    .btn-full.outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+
+    .btn-full.outline:hover { border-color: #9ca3af; }
+
+    /* ── FAQ ── */
+    #faq { background: var(--white); }
+
+    .faq-list {
+      max-width: 700px;
+      margin: 3.5rem auto 0;
+    }
+
+    .faq-item { border-bottom: 1px solid var(--border); }
+
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 1.25rem 0;
+      font-size: 15px;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      color: var(--text);
+    }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--blue-light);
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      transition: transform 0.25s;
+    }
+
+    .faq-item.open .faq-icon { transform: rotate(180deg); }
+
+    .faq-a {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.8;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s;
+    }
+
+    .faq-item.open .faq-a { max-height: 300px; padding-bottom: 1.25rem; }
+
+    /* ── CTA ── */
+    .cta-section {
+      padding: 5.5rem 2rem;
+      background: linear-gradient(135deg, var(--grad-start) 0%, var(--grad-end) 100%);
+      text-align: center;
+      color: var(--white);
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p { font-size: 1rem; opacity: 0.85; max-width: 480px; margin: 0 auto 2.5rem; }
+
+    .btn-white {
+      display: inline-block;
+      background: var(--white);
+      color: var(--blue);
+      padding: 15px 34px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+
+    .cta-note { margin-top: 1rem; font-size: 13px; opacity: 0.7; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a0f1e;
+      color: #64748b;
+      padding: 3.5rem 2rem 2rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-size: 22px;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--grad-start), var(--grad-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-tagline { font-size: 13px; margin-bottom: 2rem; color: #475569; }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links a {
+      color: #64748b;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-copy {
+      font-size: 13px;
+      border-top: 1px solid #1e293b;
+      padding-top: 1.5rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      section { padding: 3.5rem 1rem; }
+      .hero { padding: 4rem 1rem 3rem; }
+      .stats-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">emilklmedia</a>
+      <ul class="nav-links">
+        <li><a href="#ydelser">Ydelser</a></li>
+        <li><a href="#proces">Proces</a></li>
+        <li><a href="#resultater">Resultater</a></li>
+        <li><a href="#priser">Priser</a></li>
+        <li><a href="#kontakt" class="nav-cta">Gratis konsultation</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">📣 Meta Ads Specialist · Facebook &amp; Instagram</div>
+    <h1>Vi skaffer dig <span class="grad">kunder via Meta</span> — ikke bare klik</h1>
+    <p>emilklmedia specialiserer sig i profitable Meta-annoncekampagner der omsættes til rigtige kunder og reel vækst for din virksomhed.</p>
+    <div class="btn-group">
+      <a href="#kontakt" class="btn-primary">Book gratis konsultation</a>
+      <a href="#resultater" class="btn-secondary">Se vores resultater</a>
+    </div>
+    <div class="hero-social-proof">
+      <span class="stars">★★★★★</span>
+      <span>Mere end <strong>50 tilfredse kunder</strong> på tværs af brancher</span>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-strip">
+      <div class="stat">
+        <div class="stat-number">3,8x</div>
+        <div class="stat-label">Gennemsnitlig ROAS for kunder</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">-42%</div>
+        <div class="stat-label">Lavere CPL efter første måned</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">+50</div>
+        <div class="stat-label">Virksomheder vi har hjulpet</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGOS -->
+  <div class="logos">
+    <p>Samarbejder med virksomheder i alle størrelser</p>
+    <div class="logo-row">
+      <div class="logo-item">E-handel</div>
+      <div class="logo-item">Coaches</div>
+      <div class="logo-item">Ejendomme</div>
+      <div class="logo-item">Restauranter</div>
+      <div class="logo-item">SaaS</div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="ydelser">
+    <div class="container">
+      <div class="center">
+        <div class="section-label">Vores ydelser</div>
+        <h2 class="section-title">Alt hvad du skal bruge til Meta Ads</h2>
+        <p class="section-sub">Vi håndterer hele din Meta-annoncering fra strategi til optimering — så du kan fokusere på din forretning.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🎯</div>
+          <h3>Strategi & Målretning</h3>
+          <p>Vi identificerer din præcise målgruppe og bygger en skræddersyet annoncestrategi der rammer de rigtige mennesker på det rigtige tidspunkt.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✍️</div>
+          <h3>Kreativt indhold</h3>
+          <p>Fængende annoncer der stopper scrollet. Vi skriver tekster og designer visuals der konverterer — baseret på hvad der virker i din branche.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">⚙️</div>
+          <h3>Kampagneopsætning</h3>
+          <p>Teknisk korrekt opsætning af Meta Pixel, kampagnestruktur, budgivning og tracking — så du altid ved hvad der virker.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📈</div>
+          <h3>Løbende optimering</h3>
+          <p>Vi A/B-tester konstant og optimerer dine kampagner uge for uge for at presse den maksimale ROI ud af dit budget.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3>Rapportering & Indsigt</h3>
+          <p>Klare, ugentlige rapporter der viser præcis hvad du får for pengene. Ingen forvirring — bare tal der giver mening.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔄</div>
+          <h3>Retargeting</h3>
+          <p>Vi henter de varme leads hjem med strategisk retargeting — og konverterer besøgende til betalende kunder.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="proces">
+    <div class="container">
+      <div class="center">
+        <div class="section-label">Vores proces</div>
+        <h2 class="section-title">Fra opstart til resultater på 4 uger</h2>
+        <p class="section-sub">Vi har en klar og gennemprøvet proces der sikrer, at du ser resultater hurtigt.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-num">1</div>
+          <h3>Gratis analyse</h3>
+          <p>Vi gennemgår din nuværende annoncering og marked, og identificerer de største muligheder for vækst.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">2</div>
+          <h3>Strategi & plan</h3>
+          <p>Du modtager en skræddersyet annonceplan med klare mål, målgrupper og kreativt koncept.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">3</div>
+          <h3>Launch</h3>
+          <p>Vi opsætter og lancerer kampagnerne — teknisk korrekt fra dag ét med fuld tracking på plads.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">4</div>
+          <h3>Skalering</h3>
+          <p>Baseret på data skalerer vi det der virker og dropper det der ikke gør — og væksten accelererer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS / TESTIMONIALS -->
+  <section id="resultater">
+    <div class="container">
+      <div class="center">
+        <div class="section-label">Kundehistorier</div>
+        <h2 class="section-title">Resultater der taler for sig selv</h2>
+        <p class="section-sub">Vi måler succes i dine resultater — ikke vores egne timer.</p>
+      </div>
+      <div class="results-grid">
+        <div class="result-card">
+          <span class="stars">★★★★★</span>
+          <span class="result-metric">📈 ROAS 4,2x — +180% omsætning</span>
+          <blockquote>"emilklmedia forvandlede vores Meta-annoncering fuldstændigt. Inden for to måneder firedoblet vi vores omsætning fra Facebook-ads."</blockquote>
+          <div class="result-author">
+            <div class="avatar">MK</div>
+            <div class="author-info">
+              <strong>Mads K.</strong>
+              <span>Ejer, online mode-butik</span>
+            </div>
+          </div>
+        </div>
+        <div class="result-card">
+          <span class="stars">★★★★★</span>
+          <span class="result-metric">💰 CPL reduceret 54% på 6 uger</span>
+          <blockquote>"Vi brugte en formue på ads uden at se resultater. Efter én måned med emilklmedia halverede vi vores leadpris og bookede kalender fuld."</blockquote>
+          <div class="result-author">
+            <div class="avatar">SA</div>
+            <div class="author-info">
+              <strong>Sara A.</strong>
+              <span>Coach, online coaching</span>
+            </div>
+          </div>
+        </div>
+        <div class="result-card">
+          <span class="stars">★★★★★</span>
+          <span class="result-metric">🏠 +22 nye leads pr. måned</span>
+          <blockquote>"Som ejendomsmægler troede jeg ikke Meta ville virke for mig. Emil beviste mig forkert — vi får nu 20+ kvalitetsleads om måneden."</blockquote>
+          <div class="result-author">
+            <div class="avatar">TH</div>
+            <div class="author-info">
+              <strong>Thomas H.</strong>
+              <span>Ejendomsmægler, Aarhus</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="priser">
+    <div class="container">
+      <div class="center">
+        <div class="section-label">Priser</div>
+        <h2 class="section-title">Transparente priser — ingen overraskelser</h2>
+        <p class="section-sub">Fast månedlig pris. Ingen skjulte gebyrer. Annuller med 1 måneds varsel.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Starter</h3>
+          <p class="plan-desc">Til dig der er ny på Meta Ads</p>
+          <div class="price">2.999<sub> kr/md</sub></div>
+          <p class="price-note">+ dit eget annoncebudget (min. 3.000 kr/md)</p>
+          <ul class="price-features">
+            <li>1 kampagne (Facebook eller Instagram)</li>
+            <li>Strategi & målgruppeanalyse</li>
+            <li>Op til 4 annoncevarianter/md</li>
+            <li>Ugentlig optimering</li>
+            <li>Månedlig rapport</li>
+            <li class="no">A/B-testning</li>
+            <li class="no">Retargeting-kampagner</li>
+          </ul>
+          <a href="#kontakt" class="btn-full outline">Book gratis opkald</a>
+        </div>
+        <div class="price-card popular">
+          <div class="popular-badge">Mest populær</div>
+          <h3>Vækst</h3>
+          <p class="plan-desc">Til seriøse virksomheder klar til at skalere</p>
+          <div class="price">5.499<sub> kr/md</sub></div>
+          <p class="price-note">+ dit eget annoncebudget (min. 6.000 kr/md)</p>
+          <ul class="price-features">
+            <li>Op til 3 kampagner</li>
+            <li>Strategi & målgruppeanalyse</li>
+            <li>Op til 12 annoncevarianter/md</li>
+            <li>2x ugentlig optimering</li>
+            <li>Ugentlig rapport + opkald</li>
+            <li>Løbende A/B-testning</li>
+            <li>Retargeting-kampagner</li>
+          </ul>
+          <a href="#kontakt" class="btn-full primary">Book gratis opkald</a>
+        </div>
+        <div class="price-card">
+          <h3>Enterprise</h3>
+          <p class="plan-desc">Til store budgetter og komplekse opsætninger</p>
+          <div class="price">Kontakt<sub> os</sub></div>
+          <p class="price-note">Skræddersyet til dine behov</p>
+          <ul class="price-features">
+            <li>Ubegrænsede kampagner</li>
+            <li>Dedikeret kampagnemanager</li>
+            <li>Ubegrænsede annoncevarianter</li>
+            <li>Daglig optimering</li>
+            <li>Custom dashboard & rapportering</li>
+            <li>Avanceret A/B-testning</li>
+            <li>Fuld funnel-strategi</li>
+          </ul>
+          <a href="#kontakt" class="btn-full outline">Kontakt os</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="center">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Ofte stillede spørgsmål</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Hvad er inkluderet i prisen?
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-a">Prisen dækker vores arbejde — strategi, opsætning, annoncetekster, visuals og løbende optimering. Annoncebudgettet (det du betaler direkte til Meta/Facebook) er separat og kommer oveni.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Hvornår kan jeg forvente resultater?
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-a">De fleste kunder begynder at se resultater inden for 2–4 uger. De første 2 uger handler om at indsamle data og finde det der virker — herefter skalerer vi. Meta-algoritmen har brug for data for at optimere.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Hvor stort skal mit annoncebudget være?
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-a">Vi anbefaler minimum 3.000 kr/md i annoncebudget på Starter-pakken og minimum 6.000 kr/md på Vækst. Jo større budget, jo hurtigere indsamler vi data og kan skalere det der virker.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Hvad sker der hvis ads ikke virker?
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-a">Vi er forpligtet til dine resultater. Hvis vi efter 60 dage ikke har forbedret din CPL eller ROAS, tilbyder vi en gratis måned ekstra. Vi er transparente og ærlige om hvad der virker og hvad der ikke gør.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Kan jeg opsige når som helst?
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-a">Ja. Vi arbejder med 1 måneds opsigelsesvarsel. Vi binder dig ikke i lange kontrakter — vi beholder dig fordi det virker.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section" id="kontakt">
+    <h2>Klar til at vokse med Meta Ads?</h2>
+    <p>Book en gratis 30-minutters konsultation, og find ud af hvad vi kan gøre for din forretning — helt uforpligtende.</p>
+    <a href="mailto:emilklokkeholm2010@gmail.com" class="btn-white">Book gratis konsultation</a>
+    <p class="cta-note">Ingen binding · Gratis og uforpligtende · Svar inden 24 timer</p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">emilklmedia</span>
+    <p class="footer-tagline">Meta Ads der skaber reel vækst</p>
+    <div class="footer-links">
+      <a href="#ydelser">Ydelser</a>
+      <a href="#priser">Priser</a>
+      <a href="#faq">FAQ</a>
+      <a href="mailto:emilklokkeholm2010@gmail.com">Kontakt</a>
+    </div>
+    <p class="footer-copy">© 2026 emilklmedia. Alle rettigheder forbeholdes.</p>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+
+</body>
+</html>
