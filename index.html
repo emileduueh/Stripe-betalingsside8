@@ -456,6 +456,119 @@
   /* ---------- IMPROVED FORM SUBMIT ---------- */
   .form-submit{ background: var(--gold); color: #0A1628; }
   .form-submit:hover{ background: #e8a832; }
+
+  /* ---------- NAV ACTIVE LINK ---------- */
+  .nav-links a.active{ color: var(--text); }
+
+  /* ---------- GUARANTEE STRIP ---------- */
+  .guarantee-strip{
+    background: var(--bg-deep); border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+    padding: 28px 0;
+  }
+  .guarantee-inner{
+    max-width: var(--maxw); margin:0 auto; padding:0 32px;
+    display:flex; align-items:center; justify-content:center; gap:0; flex-wrap:wrap;
+  }
+  .guarantee-item{
+    display:flex; align-items:center; gap:12px;
+    padding: 10px 36px; border-right:1px solid var(--border);
+  }
+  .guarantee-item:last-child{ border-right:none; }
+  .guarantee-icon{ color:var(--gold); font-size:1.3rem; flex-shrink:0; }
+  .guarantee-text strong{ display:block; font-size:0.9rem; font-weight:600; color:var(--text); }
+  .guarantee-text span{ font-size:0.8rem; color:var(--text-muted); }
+  @media(max-width:700px){
+    .guarantee-item{ padding:10px 20px; border-right:none; border-bottom:1px solid var(--border); width:100%; }
+    .guarantee-item:last-child{ border-bottom:none; }
+  }
+
+  /* ---------- SERVICE CARD GLOW BORDER ---------- */
+  .service-card{
+    position:relative; overflow:hidden;
+    transition: background 0.25s, transform 0.22s;
+  }
+  .service-card::before{
+    content:''; position:absolute; inset:-1px; border-radius:var(--radius);
+    background: linear-gradient(135deg, var(--gold), var(--coral));
+    opacity:0; transition: opacity 0.3s; z-index:0;
+  }
+  .service-card:hover::before{ opacity:0.15; }
+  .service-card > *{ position:relative; z-index:1; }
+  .service-card:hover{ transform:translateY(-3px); }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{ background: var(--bg-deep); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .testi-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .testi-card{
+    background: var(--surface); border:1px solid var(--border-strong); border-radius:var(--radius);
+    padding:28px 24px; display:flex; flex-direction:column; gap:16px;
+    transition: transform 0.22s, border-color 0.22s;
+  }
+  .testi-card:hover{ transform:translateY(-3px); border-color: rgba(244,183,64,0.35); }
+  .testi-stars{ color:var(--gold); font-size:0.88rem; letter-spacing:2px; }
+  .testi-quote{
+    font-size:0.96rem; color:var(--text); line-height:1.7; flex:1;
+    font-style:italic; quotes:'\201C' '\201D';
+  }
+  .testi-quote::before{ content:open-quote; color:var(--gold); font-size:1.8rem; line-height:0; vertical-align:-0.5rem; margin-right:4px; }
+  .testi-metric{
+    display:inline-flex; align-items:center; gap:6px;
+    background: rgba(111,223,184,0.12); border:1px solid rgba(111,223,184,0.25);
+    color:var(--mint); font-family:'IBM Plex Mono',monospace; font-size:0.75rem; font-weight:600;
+    padding:4px 10px; border-radius:100px; width:fit-content;
+  }
+  .testi-author{ display:flex; align-items:center; gap:12px; }
+  .testi-avatar{
+    width:42px; height:42px; border-radius:50%; background: linear-gradient(135deg,var(--gold),var(--coral));
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.95rem; color:#0A1628; flex-shrink:0;
+  }
+  .testi-name{ font-size:0.9rem; font-weight:600; color:var(--text); }
+  .testi-role{ font-size:0.78rem; color:var(--text-muted); margin-top:2px; }
+  @media(max-width:900px){ .testi-grid{ grid-template-columns:1fr; } }
+  @media(min-width:540px) and (max-width:900px){ .testi-grid{ grid-template-columns:repeat(2,1fr); } }
+
+  /* ---------- COMPARISON ---------- */
+  .compare{ border-top:1px solid var(--border); }
+  .compare-table{ display:grid; grid-template-columns: 1fr 200px 200px; gap:0; border:1px solid var(--border-strong); border-radius:var(--radius); overflow:hidden; }
+  .compare-header{ background:var(--surface-2); padding:16px 20px; font-family:'IBM Plex Mono',monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-muted); display:flex; align-items:center; }
+  .compare-header.highlight{ background: rgba(244,183,64,0.12); color:var(--gold); border-left:1px solid var(--border-strong); border-right:1px solid var(--border-strong); text-align:center; justify-content:center; }
+  .compare-header.dim{ background:var(--bg-deep); color:var(--text-faint); border-left:1px solid var(--border-strong); text-align:center; justify-content:center; }
+  .compare-row{ display:contents; }
+  .compare-cell{ padding:15px 20px; font-size:0.9rem; color:var(--text-muted); border-top:1px solid var(--border); display:flex; align-items:center; }
+  .compare-cell.label{ color:var(--text); font-weight:500; }
+  .compare-cell.yes{ background:rgba(244,183,64,0.06); border-left:1px solid var(--border-strong); border-right:1px solid var(--border-strong); justify-content:center; color:var(--mint); font-weight:700; font-size:1.1rem; }
+  .compare-cell.no{ background:rgba(10,15,26,0.3); border-left:1px solid var(--border-strong); justify-content:center; color:var(--text-faint); font-size:1.1rem; }
+  @media(max-width:600px){
+    .compare-table{ grid-template-columns:1fr 90px 90px; }
+    .compare-header,.compare-cell{ padding:12px 10px; font-size:0.8rem; }
+  }
+
+  /* ---------- GUARANTEE BADGE (section) ---------- */
+  .guarantee-section{ border-top:1px solid var(--border); background:var(--bg); }
+  .guarantee-box{
+    background: linear-gradient(135deg, rgba(244,183,64,0.07) 0%, rgba(255,90,67,0.05) 100%);
+    border:1px solid rgba(244,183,64,0.25); border-radius: 20px;
+    padding:48px 56px; display:flex; gap:40px; align-items:flex-start;
+  }
+  .guarantee-shield{
+    width:80px; height:80px; background: rgba(244,183,64,0.12); border:1.5px solid rgba(244,183,64,0.3);
+    border-radius:20px; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    font-size:2.2rem;
+  }
+  .guarantee-body h2{ font-size:clamp(1.5rem,2.8vw,2.2rem); margin-bottom:12px; }
+  .guarantee-body p{ color:var(--text-muted); font-size:1rem; line-height:1.7; max-width:560px; }
+  .guarantee-list{ margin-top:20px; display:flex; flex-direction:column; gap:10px; }
+  .guarantee-list li{ display:flex; align-items:flex-start; gap:10px; font-size:0.9rem; color:var(--text-muted); }
+  .guarantee-list li::before{ content:'✓'; color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px; }
+  @media(max-width:700px){ .guarantee-box{ flex-direction:column; padding:32px 24px; } }
+
+  /* ---------- LOGO / TRUSTED BY ---------- */
+  .trusted{ border-top:1px solid var(--border); padding:48px 0; background:var(--bg-deep); }
+  .trusted-label{ font-family:'IBM Plex Mono',monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-faint); text-align:center; margin-bottom:32px; }
+  .trusted-logos{ display:flex; justify-content:center; align-items:center; gap:48px; flex-wrap:wrap; }
+  .trusted-logo{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.1rem; color:var(--text-faint); letter-spacing:-0.03em; transition:color 0.2s; }
+  .trusted-logo:hover{ color:var(--text-muted); }
 </style>
 </head>
 <body>
@@ -567,6 +680,33 @@
       <div class="proof-item"><div class="proof-num">24h</div><div class="proof-label">Max response time</div></div>
       <div class="proof-item"><div class="proof-num">0</div><div class="proof-label">Months lock-in required</div></div>
       <div class="proof-item"><div class="proof-num">1:1</div><div class="proof-label">Direct access, no middlemen</div></div>
+    </div>
+  </div>
+
+  <!-- GUARANTEE STRIP -->
+  <div class="guarantee-strip">
+    <div class="guarantee-inner">
+      <div class="guarantee-item">
+        <span class="guarantee-icon">🛡️</span>
+        <div class="guarantee-text">
+          <strong>Results or we work for free</strong>
+          <span>60-day money-back if we don't improve your metrics</span>
+        </div>
+      </div>
+      <div class="guarantee-item">
+        <span class="guarantee-icon">🔍</span>
+        <div class="guarantee-text">
+          <strong>Full transparency, always</strong>
+          <span>You own your ad account — we never hold it hostage</span>
+        </div>
+      </div>
+      <div class="guarantee-item">
+        <span class="guarantee-icon">⚡</span>
+        <div class="guarantee-text">
+          <strong>Live in 5–7 business days</strong>
+          <span>From strategy call to first live campaign</span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -768,6 +908,59 @@
     </div>
   </section>
 
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-eyebrow">Testimonials</div>
+        <h2>What our clients say</h2>
+        <p>Don't take our word for it — hear from the businesses we work with every day.</p>
+      </div>
+      <div class="testi-grid reveal">
+
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">Emil completely transformed our Facebook campaigns. Within six weeks our ROAS went from 1.8x to 4.2x. We finally know exactly what we're paying for and why.</p>
+          <span class="testi-metric">📈 ROAS 1.8x → 4.2x</span>
+          <div class="testi-author">
+            <div class="testi-avatar">MK</div>
+            <div>
+              <div class="testi-name">Mads K.</div>
+              <div class="testi-role">Owner, Online fashion store</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">We'd burned through three agencies before EmilKLMedia. Emil is the first person who actually explained what was happening with our budget — and then fixed it. Our CPL dropped 54% in a month.</p>
+          <span class="testi-metric">💰 CPL down 54% in 30 days</span>
+          <div class="testi-author">
+            <div class="testi-avatar">SA</div>
+            <div>
+              <div class="testi-name">Sara A.</div>
+              <div class="testi-role">Business coach, Copenhagen</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">I was skeptical — I run a local business and didn't think Meta ads would work for me. Emil proved me wrong. We now get 20+ quality leads a month at half the cost of what we were paying Google.</p>
+          <span class="testi-metric">🏠 20+ new leads/month</span>
+          <div class="testi-author">
+            <div class="testi-avatar">TH</div>
+            <div>
+              <div class="testi-name">Thomas H.</div>
+              <div class="testi-role">Estate agent, Aarhus</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- PARTNERSHIP -->
   <section class="results" id="partnership">
     <div class="wrap">
@@ -810,6 +1003,76 @@
           <div class="partnership-label"><strong style="color:var(--text)">Direct access to us.</strong> No account managers or layers between you and the people running your ads.</div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="compare" id="compare">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-eyebrow">Why it matters</div>
+        <h2>With us vs. running it yourself</h2>
+        <p>Most businesses waste 40–60% of their ad budget on guesswork. Here's what changes when you work with a dedicated Meta partner.</p>
+      </div>
+      <div class="compare-table reveal">
+        <div class="compare-header">What you get</div>
+        <div class="compare-header highlight">With EmilKLMedia</div>
+        <div class="compare-header dim">DIY / generic agency</div>
+
+        <div class="compare-row">
+          <div class="compare-cell label">Dedicated Meta specialist</div>
+          <div class="compare-cell yes">✓</div>
+          <div class="compare-cell no">✗</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell label">Proper pixel & conversion setup</div>
+          <div class="compare-cell yes">✓</div>
+          <div class="compare-cell no">Sometimes</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell label">Weekly optimisation & A/B testing</div>
+          <div class="compare-cell yes">✓</div>
+          <div class="compare-cell no">✗</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell label">You own your ad account</div>
+          <div class="compare-cell yes">✓</div>
+          <div class="compare-cell no">Often not</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell label">Transparent spend reporting</div>
+          <div class="compare-cell yes">✓</div>
+          <div class="compare-cell no">Rarely</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell label">No long-term lock-in</div>
+          <div class="compare-cell yes">✓</div>
+          <div class="compare-cell no">✗</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell label">Direct access — no account managers</div>
+          <div class="compare-cell yes">✓</div>
+          <div class="compare-cell no">✗</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <section class="guarantee-section">
+    <div class="wrap">
+      <div class="guarantee-box reveal">
+        <div class="guarantee-shield">🛡️</div>
+        <div class="guarantee-body">
+          <h2>Our 60-day results guarantee</h2>
+          <p>We are so confident in what we do that we back it up. If we don't deliver measurable improvement to your key metrics within the first 60 days, we'll work an additional month completely free of charge.</p>
+          <ul class="guarantee-list">
+            <li>Lower cost per lead or cost per acquisition</li>
+            <li>Higher ROAS compared to your baseline</li>
+            <li>No questions asked — you decide if it worked</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -1126,6 +1389,32 @@
       formSubmitBtn.textContent = 'Send enquiry';
     }
   });
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id], div[id="top"]');
+  const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navAnchors.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { threshold: 0.25, rootMargin: '-64px 0px -40% 0px' });
+  sections.forEach(s => navObserver.observe(s));
+
+  // Hide floating CTA when contact section is visible
+  const floatCta = document.querySelector('.float-cta');
+  const contactSection = document.getElementById('contact');
+  if (floatCta && contactSection) {
+    const hideObserver = new IntersectionObserver(([e]) => {
+      floatCta.style.opacity = e.isIntersecting ? '0' : '1';
+      floatCta.style.pointerEvents = e.isIntersecting ? 'none' : '';
+    }, { threshold: 0.1 });
+    hideObserver.observe(contactSection);
+  }
 </script>
 </body>
 </html>
