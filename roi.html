@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="da">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ROI Beregner — EmilKLMedia</title>
-<meta name="description" content="Beregn hvad du kan tjene med professionel Meta annoncering. Gratis ROI beregner fra EmilKLMedia.">
+<title>ROI Calculator — EmilKLMedia</title>
+<meta name="description" content="Calculate what you could earn with professional Meta advertising. Free ROI calculator from EmilKLMedia.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F1E1C'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' font-weight='700' fill='%23F4B740' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
@@ -40,7 +40,6 @@ header{position:sticky;top:0;z-index:100;padding:16px 0;border-bottom:1px solid 
 .calc-layout{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:0 0 100px;align-items:start;}
 @media(max-width:700px){.calc-layout{grid-template-columns:1fr;}}
 
-/* Inputs */
 .calc-inputs{background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:32px;}
 .input-group{margin-bottom:28px;}
 .input-group:last-child{margin-bottom:0;}
@@ -60,7 +59,6 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .select-input{width:100%;background:var(--bg);border:1px solid var(--border-strong);border-radius:var(--radius-sm);padding:12px 16px;color:var(--text);font-size:0.95rem;outline:none;cursor:pointer;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234E6070' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;transition:border-color 0.2s;}
 .select-input:focus{border-color:var(--gold);}
 
-/* Results */
 .calc-results{position:sticky;top:88px;}
 .results-card{background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:32px;margin-bottom:16px;}
 .results-card h3{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.07em;font-family:'IBM Plex Mono',monospace;color:var(--text-faint);margin-bottom:20px;}
@@ -81,7 +79,7 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 
 .disclaimer{font-size:0.78rem;color:var(--text-faint);line-height:1.5;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);}
 
-.cta-card{background:var(--surface2);border:1px solid var(--border-strong);border-radius:var(--radius);padding:28px 32px;text-align:center;}
+.cta-card{background:var(--surface2);border:1px solid var(--border-strong);border-radius:var(--radius);padding:28px 32px;text-align:center;margin-top:16px;}
 .cta-card p{color:var(--text-muted);font-size:0.9rem;margin-bottom:18px;}
 .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#1A0E0B;font-weight:600;padding:13px 26px;border-radius:100px;font-size:0.92rem;transition:opacity 0.2s,transform 0.2s;width:100%;justify-content:center;}
 .btn-primary:hover{opacity:0.9;transform:translateY(-1px);}
@@ -97,16 +95,16 @@ footer a{color:var(--text-muted);}
   <div class="wrap">
     <div class="header-inner">
       <a href="index.html" class="logo">Emil KL<span>Media</span></a>
-      <a href="index.html#contact" class="btn-cta-sm">Book gratis samtale</a>
+      <a href="index.html#contact" class="btn-cta-sm">Book a free call</a>
     </div>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap">
-    <div class="eyebrow">ROI Beregner</div>
-    <h1>Find ud af hvad du <em>går glip af</em></h1>
-    <p>Indtast dit annoncebudget og din nuværende ROAS, og se hvad optimeret Meta annoncering kan betyde for din bundlinje.</p>
+    <div class="eyebrow">ROI Calculator</div>
+    <h1>Find out what you're <em>leaving on the table</em></h1>
+    <p>Enter your ad budget and current ROAS to see what optimised Meta advertising could mean for your bottom line.</p>
   </div>
 </section>
 
@@ -114,64 +112,62 @@ footer a{color:var(--text-muted);}
   <div class="wrap">
     <div class="calc-layout">
 
-      <!-- Inputs -->
       <div class="calc-inputs">
         <div class="input-group">
-          <div class="input-label">Månedligt annoncebudget <span id="budgetDisplay">5.000 kr.</span></div>
-          <input type="number" class="num-input" id="budget" value="5000" min="500" max="500000" placeholder="5000">
+          <div class="input-label">Monthly ad budget <span id="budgetDisplay">€500</span></div>
+          <input type="number" class="num-input" id="budget" value="500" min="50" max="50000" placeholder="500">
         </div>
 
         <div class="input-group">
-          <div class="input-label">Nuværende ROAS <span id="roasDisplay">2,0×</span></div>
+          <div class="input-label">Current ROAS <span id="roasDisplay">2.0×</span></div>
           <div class="range-wrap">
             <input type="range" id="roas" min="0.5" max="8" step="0.1" value="2.0">
-            <div class="range-labels"><span>0,5×</span><span>4×</span><span>8×</span></div>
+            <div class="range-labels"><span>0.5×</span><span>4×</span><span>8×</span></div>
           </div>
         </div>
 
         <div class="input-group">
-          <div class="input-label">Branche</div>
+          <div class="input-label">Industry</div>
           <select class="select-input" id="industry">
-            <option value="1.0">E-handel (gennemsnit)</option>
+            <option value="1.0">E-commerce (average)</option>
             <option value="0.9">Service / B2B</option>
-            <option value="1.1">Mode og livsstil</option>
-            <option value="1.2">Fitness og helse</option>
-            <option value="0.85">Restaurant og mad</option>
-            <option value="1.05">Skønhed og pleje</option>
-            <option value="1.0">Andet</option>
+            <option value="1.1">Fashion &amp; lifestyle</option>
+            <option value="1.2">Fitness &amp; health</option>
+            <option value="0.85">Food &amp; restaurant</option>
+            <option value="1.05">Beauty &amp; personal care</option>
+            <option value="1.0">Other</option>
           </select>
         </div>
       </div>
 
-      <!-- Results -->
       <div class="calc-results">
         <div class="results-card">
-          <h3>Din nuværende situation</h3>
-          <div class="result-row"><span class="result-name">Budget pr. måned</span><span class="result-val" id="r-budget">5.000 kr.</span></div>
-          <div class="result-row"><span class="result-name">ROAS</span><span class="result-val" id="r-roas">2,0×</span></div>
-          <div class="result-row"><span class="result-name">Omsætning fra Meta</span><span class="result-val gold" id="r-current">10.000 kr.</span></div>
+          <h3>Your current situation</h3>
+          <div class="result-row"><span class="result-name">Monthly budget</span><span class="result-val" id="r-budget">€500</span></div>
+          <div class="result-row"><span class="result-name">ROAS</span><span class="result-val" id="r-roas">2.0×</span></div>
+          <div class="result-row"><span class="result-name">Revenue from Meta</span><span class="result-val gold" id="r-current">€1,000</span></div>
         </div>
 
         <div class="big-result">
-          <div class="label">Estimeret ekstra omsætning pr. md.</div>
-          <div class="amount" id="r-extra">+12.600 kr.</div>
-          <div class="sublabel">med optimeret Meta annoncering</div>
+          <div class="label">Estimated extra revenue per month</div>
+          <div class="amount" id="r-extra">+€1,260</div>
+          <div class="sublabel">with optimised Meta advertising</div>
         </div>
 
         <div class="results-card">
-          <h3>Med EmilKLMedia</h3>
-          <div class="result-row"><span class="result-name">Estimeret ROAS</span><span class="result-val mint" id="r-new-roas">3,8×</span></div>
-          <div class="result-row"><span class="result-name">Omsætning pr. md.</span><span class="result-val mint" id="r-new-rev">19.000 kr.</span></div>
-          <div class="result-row"><span class="result-name">Ekstra pr. år</span><span class="result-val gold" id="r-year">+151.200 kr.</span></div>
+          <h3>With EmilKLMedia</h3>
+          <div class="result-row"><span class="result-name">Estimated ROAS</span><span class="result-val mint" id="r-new-roas">3.8×</span></div>
+          <div class="result-row"><span class="result-name">Revenue per month</span><span class="result-val mint" id="r-new-rev">€1,900</span></div>
+          <div class="result-row"><span class="result-name">Extra per year</span><span class="result-val gold" id="r-year">+€10,800</span></div>
         </div>
 
         <div class="disclaimer">
-          Estimaterne er baseret på gennemsnitlige forbedringer fra vores kundeportefølje. Faktiske resultater varierer alt efter branche, produkt og markedssituation.
+          Estimates are based on average improvements across our client portfolio. Actual results vary depending on industry, product, and market conditions.
         </div>
 
-        <div class="cta-card" style="margin-top:16px;">
-          <p>Vil du se hvad der er muligt for din virksomhed?</p>
-          <a href="index.html#contact" class="btn-primary">Book gratis samtale →</a>
+        <div class="cta-card">
+          <p>Want to see what's possible for your business?</p>
+          <a href="index.html#contact" class="btn-primary">Book a free strategy call →</a>
         </div>
       </div>
 
@@ -181,7 +177,7 @@ footer a{color:var(--text-muted);}
 
 <footer>
   <div class="wrap">
-    <p>&copy; 2026 EmilKLMedia &mdash; <a href="privatliv.html">Privatlivspolitik</a> &mdash; <a href="index.html">Forside</a> &mdash; <a href="casestudies.html">Kundehistorier</a></p>
+    <p>&copy; 2026 EmilKLMedia &mdash; <a href="privatliv.html">Privacy Policy</a> &mdash; <a href="index.html">Home</a> &mdash; <a href="casestudies.html">Case Studies</a></p>
   </div>
 </footer>
 
@@ -202,7 +198,7 @@ footer a{color:var(--text-muted);}
   const rYear = document.getElementById('r-year');
 
   function fmt(n) {
-    return Math.round(n).toLocaleString('da-DK') + ' kr.';
+    return '€' + Math.round(n).toLocaleString('en-GB');
   }
 
   function calc() {
@@ -210,8 +206,6 @@ footer a{color:var(--text-muted);}
     const roas = parseFloat(roasSlider.value);
     const factor = parseFloat(industrySelect.value);
 
-    // Improvement model: based on portfolio average of ~1.9× ROAS improvement,
-    // capped to feel realistic. Diminishing returns for already-high ROAS.
     const improvementFactor = Math.max(1.3, 2.4 - roas * 0.12) * factor;
     const newRoas = Math.min(roas * improvementFactor, roas + 6);
 
@@ -221,13 +215,13 @@ footer a{color:var(--text-muted);}
     const extraYear = extra * 12;
 
     budgetDisplay.textContent = fmt(budget);
-    roasDisplay.textContent = roas.toFixed(1).replace('.', ',') + '×';
+    roasDisplay.textContent = roas.toFixed(1) + '×';
 
     rBudget.textContent = fmt(budget);
-    rRoas.textContent = roas.toFixed(1).replace('.', ',') + '×';
+    rRoas.textContent = roas.toFixed(1) + '×';
     rCurrent.textContent = fmt(currentRev);
 
-    rNewRoas.textContent = newRoas.toFixed(1).replace('.', ',') + '×';
+    rNewRoas.textContent = newRoas.toFixed(1) + '×';
     rNewRev.textContent = fmt(newRev);
 
     const sign = extra >= 0 ? '+' : '';
