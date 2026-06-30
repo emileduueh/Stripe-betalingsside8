@@ -581,10 +581,9 @@
     <a href="#top" class="logo">Emil KL<span>Media</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#services">Services</a></li>
-      <li><a href="#process">Process</a></li>
+      <li><a href="case-studies.html">Cases</a></li>
+      <li><a href="roi.html">ROI beregner</a></li>
       <li><a href="#results">Results</a></li>
-      <li><a href="#partnership">Partnership</a></li>
-      <li><a href="#team">Team</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#contact" class="nav-cta js-book-call">Book a call</a></li>
@@ -1353,8 +1352,7 @@
       });
 
       if (response.ok) {
-        contactForm.style.display = 'none';
-        formConfirm.classList.add('show');
+        window.location.href = 'tak.html';
       } else {
         throw new Error('Formspree rejected the submission');
       }
