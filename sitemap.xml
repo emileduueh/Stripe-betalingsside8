@@ -8,9 +8,15 @@
   </url>
   <url>
     <loc>https://emilklmedia.com/casestudies.html</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://emilklmedia.com/about.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://emilklmedia.com/roi.html</loc>
