@@ -621,11 +621,11 @@
         <div class="dash-stats">
           <div class="dash-stat">
             <div class="label">Ad spend</div>
-            <div class="value mono" data-count="38400" data-prefix="" data-suffix=" kr">0 kr</div>
+            <div class="value mono" data-count="5150" data-prefix="€" data-suffix="">€0</div>
           </div>
           <div class="dash-stat">
             <div class="label">Revenue</div>
-            <div class="value gold mono" data-count="161000" data-prefix="" data-suffix=" kr">0 kr</div>
+            <div class="value gold mono" data-count="21600" data-prefix="€" data-suffix="">€0</div>
             <div class="delta">+128% vs. previous period</div>
           </div>
           <div class="dash-stat">
@@ -1093,7 +1093,7 @@
 
         <div class="faq-item">
           <button class="faq-q">What ad budget do I need?<span class="faq-icon">+</span></button>
-          <div class="faq-a"><div class="faq-a-inner">We recommend a minimum ad budget of 5,000 kr./month to see meaningful results — though more gives the Meta algorithm better data to work with. Your ad spend goes directly to Meta and is separate from our management fee.</div></div>
+          <div class="faq-a"><div class="faq-a-inner">We recommend a minimum ad budget of €700/month to see meaningful results — though more gives the Meta algorithm better data to work with. Your ad spend goes directly to Meta and is separate from our management fee.</div></div>
         </div>
 
         <div class="faq-item">
@@ -1277,13 +1277,14 @@
 
   // Count-up numbers
   function formatNumber(num, decimals) {
-    if (decimals > 0) return num.toFixed(decimals).replace('.', '.');
-    return Math.round(num).toLocaleString('da-DK');
+    if (decimals > 0) return num.toFixed(decimals);
+    return Math.round(num).toLocaleString('en-GB');
   }
 
   function animateCount(el) {
     const target = parseFloat(el.dataset.count);
     const decimals = parseInt(el.dataset.decimals || '0');
+    const prefix = el.dataset.prefix || '';
     const suffix = el.dataset.suffix || '';
     const duration = 1400;
     const start = performance.now();
@@ -1292,7 +1293,7 @@
       const progress = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = target * eased;
-      el.textContent = formatNumber(current, decimals) + suffix;
+      el.textContent = prefix + formatNumber(current, decimals) + suffix;
       if (progress < 1) requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
