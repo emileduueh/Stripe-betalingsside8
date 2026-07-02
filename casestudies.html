@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Studies — EmilKLMedia</title>
+<meta name="description" content="See how we've helped businesses scale their Meta advertising and achieve significantly better results.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F1E1C'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' font-weight='700' fill='%23F4B740' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080F1E; --bg-deep:#050A14; --surface:#0E1929; --surface2:#131F30;
+  --border:rgba(246,241,232,0.07); --border-strong:rgba(246,241,232,0.14);
+  --text:#F6F1E8; --text-muted:#8FA3B0; --text-faint:#4E6070;
+  --gold:#F4B740; --gold-soft:rgba(244,183,64,0.12);
+  --coral:#FF5A43; --coral-soft:rgba(255,90,67,0.12);
+  --mint:#6FDFB8; --mint-soft:rgba(111,223,184,0.12);
+  --radius:16px; --radius-sm:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-0.01em;}
+a{color:var(--gold);text-decoration:none;}
+a:hover{opacity:0.85;}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px;}
+
+header{position:sticky;top:0;z-index:100;padding:16px 0;border-bottom:1px solid var(--border);backdrop-filter:blur(16px);background:rgba(8,15,30,0.85);}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;}
+.logo span{color:var(--gold);}
+.nav-actions{display:flex;gap:12px;align-items:center;}
+.btn-ghost-sm{color:var(--text-muted);font-size:0.88rem;padding:8px 16px;border:1px solid var(--border-strong);border-radius:100px;transition:color 0.2s;}
+.btn-ghost-sm:hover{color:var(--text);}
+.btn-cta-sm{background:var(--gold);color:#1A0E0B;font-weight:600;font-size:0.88rem;padding:8px 18px;border-radius:100px;transition:opacity 0.2s;}
+.btn-cta-sm:hover{opacity:0.9;}
+
+.hero{padding:80px 0 64px;text-align:center;}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--coral);margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--coral);display:inline-block;}
+.hero h1{font-size:clamp(1.9rem,5vw,3rem);margin-bottom:18px;}
+.hero h1 em{font-style:normal;color:var(--gold);}
+.hero p{color:var(--text-muted);font-size:1.05rem;max-width:560px;margin:0 auto 40px;}
+
+.stats-bar{display:flex;gap:0;border:1px solid var(--border-strong);border-radius:var(--radius);overflow:hidden;max-width:700px;margin:0 auto;}
+.stat-item{flex:1;padding:22px 16px;text-align:center;border-right:1px solid var(--border-strong);}
+.stat-item:last-child{border-right:none;}
+.stat-val{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;color:var(--gold);margin-bottom:4px;}
+.stat-label{font-size:0.75rem;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.06em;font-family:'IBM Plex Mono',monospace;}
+@media(max-width:600px){.stats-bar{flex-direction:column;}.stat-item{border-right:none;border-bottom:1px solid var(--border-strong);}.stat-item:last-child{border-bottom:none;}}
+
+.cases{padding:0 0 100px;}
+.case-card{background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);overflow:hidden;margin-bottom:40px;}
+.case-header{padding:32px 36px 28px;border-bottom:1px solid var(--border);}
+.case-meta{display:flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap;}
+.case-tag{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;padding:4px 10px;border-radius:6px;}
+.tag-gold{background:var(--gold-soft);color:var(--gold);}
+.tag-coral{background:var(--coral-soft);color:var(--coral);}
+.tag-mint{background:var(--mint-soft);color:var(--mint);}
+.case-name{font-size:0.82rem;color:var(--text-faint);}
+.case-header h2{font-size:1.35rem;margin-bottom:10px;}
+.case-header p{color:var(--text-muted);font-size:0.95rem;}
+
+.case-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-bottom:1px solid var(--border);}
+.metric{padding:24px 28px;border-right:1px solid var(--border);text-align:center;}
+.metric:last-child{border-right:none;}
+.metric-val{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:4px;}
+.metric-label{font-size:0.75rem;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.05em;font-family:'IBM Plex Mono',monospace;}
+.metric-before{font-size:0.78rem;color:var(--text-faint);margin-top:6px;}
+@media(max-width:600px){.case-metrics{grid-template-columns:1fr;}.metric{border-right:none;border-bottom:1px solid var(--border);}.metric:last-child{border-bottom:none;}}
+
+.case-body{padding:32px 36px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;}
+@media(max-width:720px){.case-body{grid-template-columns:1fr;}.case-header{padding:24px;}.case-body{padding:24px;}}
+.case-col h3{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.07em;font-family:'IBM Plex Mono',monospace;color:var(--text-faint);margin-bottom:12px;}
+.case-col p{font-size:0.9rem;color:var(--text-muted);line-height:1.6;}
+.case-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.case-col ul li{font-size:0.9rem;color:var(--text-muted);padding-left:18px;position:relative;}
+.case-col ul li::before{content:'→';position:absolute;left:0;color:var(--gold);font-size:0.8rem;}
+
+.quote-strip{background:var(--surface2);border-top:1px solid var(--border);padding:24px 36px;display:flex;align-items:flex-start;gap:14px;}
+@media(max-width:600px){.quote-strip{padding:20px 24px;}}
+.quote-mark{font-size:2rem;line-height:1;color:var(--gold);opacity:0.5;flex-shrink:0;margin-top:-4px;}
+.quote-text{font-size:0.92rem;color:var(--text-muted);font-style:italic;line-height:1.6;}
+.quote-author{font-size:0.8rem;color:var(--text-faint);margin-top:6px;font-style:normal;font-family:'IBM Plex Mono',monospace;}
+
+.cta-section{padding:72px 0 100px;text-align:center;}
+.cta-box{background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:56px 40px;max-width:640px;margin:0 auto;}
+.cta-box h2{font-size:1.7rem;margin-bottom:14px;}
+.cta-box p{color:var(--text-muted);margin-bottom:32px;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#1A0E0B;font-weight:600;padding:14px 28px;border-radius:100px;font-size:0.95rem;transition:opacity 0.2s,transform 0.2s;}
+.btn-primary:hover{opacity:0.9;transform:translateY(-2px);}
+
+footer{border-top:1px solid var(--border);padding:32px 0;text-align:center;}
+footer p{font-size:0.82rem;color:var(--text-faint);}
+footer a{color:var(--text-muted);}
+</style>
+<!-- Google Tag Manager — replace GTM-NLN6QQ8D with your own ID -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
+new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
+"https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,"script","dataLayer","GTM-NLN6QQ8D");<\/script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLN6QQ8D" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+<header>
+  <div class="wrap">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Emil KL<span>Media</span></a>
+      <nav class="nav-actions">
+        <a href="roi.html" class="btn-ghost-sm">ROI Calculator</a>
+        <a href="index.html#contact" class="btn-cta-sm">Book a free call</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Case Studies</div>
+    <h1>Real results from <em>real clients</em></h1>
+    <p>Here's a selection of the results we've created for businesses on Meta.</p>
+    <div class="stats-bar">
+      <div class="stat-item"><div class="stat-val">4.2×</div><div class="stat-label">Best ROAS</div></div>
+      <div class="stat-item"><div class="stat-val">−54%</div><div class="stat-label">CPL reduction</div></div>
+      <div class="stat-item"><div class="stat-val">20+</div><div class="stat-label">Leads/month</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cases">
+  <div class="wrap">
+
+    <!-- Case 1 -->
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-meta">
+          <span class="case-tag tag-gold">E-commerce</span>
+          <span class="case-tag tag-mint">Facebook + Instagram</span>
+          <span class="case-name">Mads K. — Online clothing store</span>
+        </div>
+        <h2>From 1.8× to 4.2× ROAS in 47 days</h2>
+        <p>A Danish e-commerce clothing store was running their own Meta ads with a budget of €1,200/month. ROAS was stagnating and CPM kept rising month over month. They reached out to EmilKLMedia to turn things around.</p>
+      </div>
+      <div class="case-metrics">
+        <div class="metric"><div class="metric-val" style="color:var(--gold)">4.2×</div><div class="metric-label">ROAS</div><div class="metric-before">Previously: 1.8×</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--mint)">+133%</div><div class="metric-label">Revenue from ads</div><div class="metric-before">Same budget</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--coral)">−38%</div><div class="metric-label">CPM</div><div class="metric-before">Lower ad costs</div></div>
+      </div>
+      <div class="case-body">
+        <div class="case-col">
+          <h3>The challenge</h3>
+          <p>The ad account was fragmented with 40+ active ad sets. The Facebook algorithm wasn't getting enough conversion data to optimise properly, and the creatives were outdated.</p>
+        </div>
+        <div class="case-col">
+          <h3>What we did</h3>
+          <ul>
+            <li>Consolidated to 3 campaigns with broad targeting</li>
+            <li>Produced 12 new video creatives with hooks tested against each other</li>
+            <li>Implemented Advantage+ Shopping campaigns</li>
+            <li>Set up dynamic retargeting with product catalogue</li>
+          </ul>
+        </div>
+        <div class="case-col">
+          <h3>Results after 47 days</h3>
+          <ul>
+            <li>ROAS from 1.8× to 4.2×</li>
+            <li>Monthly revenue from Meta +133%</li>
+            <li>CPM dropped by 38%</li>
+            <li>CTR improved from 0.9% to 2.4%</li>
+          </ul>
+        </div>
+      </div>
+      <div class="quote-strip">
+        <span class="quote-mark">&ldquo;</span>
+        <div>
+          <p class="quote-text">I used to spend double the budget and get half the results. Emil spotted the issues within the first week and results followed quickly.</p>
+          <p class="quote-author">— Mads K., owner</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 2 -->
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-meta">
+          <span class="case-tag tag-coral">Service</span>
+          <span class="case-tag tag-gold">Lead generation</span>
+          <span class="case-name">Sara A. — Consultancy firm</span>
+        </div>
+        <h2>CPL reduced by 54% and lead quality improved</h2>
+        <p>A B2B consultancy was using Meta to generate leads for their sales team. The problem wasn't a lack of leads — they were too expensive and too few converted into paying clients.</p>
+      </div>
+      <div class="case-metrics">
+        <div class="metric"><div class="metric-val" style="color:var(--mint)">−54%</div><div class="metric-label">Cost Per Lead</div><div class="metric-before">From €42 to €19</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--gold)">3.1×</div><div class="metric-label">Lead-to-client ratio</div><div class="metric-before">Better lead quality</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--coral)">+89%</div><div class="metric-label">Monthly clients</div><div class="metric-before">From Meta</div></div>
+      </div>
+      <div class="case-body">
+        <div class="case-col">
+          <h3>The challenge</h3>
+          <p>The ads were attracting people looking for free advice — not paying clients. CPL was high and the sales team was spending too many resources on unqualified enquiries.</p>
+        </div>
+        <div class="case-col">
+          <h3>What we did</h3>
+          <ul>
+            <li>Rewrote ad messaging to qualify rather than attract everyone</li>
+            <li>Switched from lead forms to website conversions for better quality</li>
+            <li>Segmented audiences by company size and industry</li>
+            <li>A/B tested 6 landing pages with different copy</li>
+          </ul>
+        </div>
+        <div class="case-col">
+          <h3>Results</h3>
+          <ul>
+            <li>CPL from €42 to €19 (−54%)</li>
+            <li>Lead-to-client ratio 3× better</li>
+            <li>89% more clients from Meta per month</li>
+            <li>Sales team saves 6 hours/week on unqualified leads</li>
+          </ul>
+        </div>
+      </div>
+      <div class="quote-strip">
+        <span class="quote-mark">&ldquo;</span>
+        <div>
+          <p class="quote-text">We didn't just get cheaper leads — we got leads that actually wanted to buy. It completely changed how we see Meta as a channel.</p>
+          <p class="quote-author">— Sara A., CEO</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 3 -->
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-meta">
+          <span class="case-tag tag-mint">Fitness</span>
+          <span class="case-tag tag-coral">Local</span>
+          <span class="case-name">Thomas H. — Gym</span>
+        </div>
+        <h2>From 3 leads to 20+ qualified leads per month</h2>
+        <p>A local gym had never figured out how to use Meta effectively. They ran sporadic campaigns with modest results and no clear strategy for converting viewers into members.</p>
+      </div>
+      <div class="case-metrics">
+        <div class="metric"><div class="metric-val" style="color:var(--gold)">20+</div><div class="metric-label">Leads per month</div><div class="metric-before">Previously: 2–3/month</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--mint)">+340%</div><div class="metric-label">New members from Meta</div><div class="metric-before">vs. same period</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--coral)">7.4×</div><div class="metric-label">ROI on ad spend</div><div class="metric-before">Incl. LTV calculation</div></div>
+      </div>
+      <div class="case-body">
+        <div class="case-col">
+          <h3>The challenge</h3>
+          <p>The gym was running generic image ads with no clear CTA. Targeting was set to "everyone in the area" with no further segmentation, and there was no retargeting in place.</p>
+        </div>
+        <div class="case-col">
+          <h3>What we did</h3>
+          <ul>
+            <li>Produced before/after videos and "day in the gym" content</li>
+            <li>Set up local radius targeting with interest layers</li>
+            <li>Built a 3-stage funnel: awareness → interest → offer</li>
+            <li>Created a free trial as a lead magnet</li>
+          </ul>
+        </div>
+        <div class="case-col">
+          <h3>Results</h3>
+          <ul>
+            <li>Leads went from 2–3 to 20+ per month</li>
+            <li>340% more new members from Meta</li>
+            <li>7.4× ROI including lifetime value of a new member</li>
+            <li>Organic reach increased by 180% as a side effect</li>
+          </ul>
+        </div>
+      </div>
+      <div class="quote-strip">
+        <span class="quote-mark">&ldquo;</span>
+        <div>
+          <p class="quote-text">I knew Meta could work but didn't know how. Now it's our most profitable channel by a wide margin.</p>
+          <p class="quote-author">— Thomas H., owner</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-box">
+      <h2>Ready for your own results?</h2>
+      <p>Book a free strategy call and find out what's possible for your business. No commitment required.</p>
+      <a href="index.html#contact" class="btn-primary">Book a free call →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 EmilKLMedia &mdash; CVR 46606175 &mdash; <a href="privatliv.html">Privacy Policy</a> &mdash; <a href="index.html">Home</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

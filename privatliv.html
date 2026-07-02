@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — EmilKLMedia</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A1628'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' font-weight='700' fill='%23F4B740' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0A1628;
+    --bg-deep: #070F1A;
+    --surface: #0F2040;
+    --surface-2: #152850;
+    --border: rgba(150,180,255,0.10);
+    --border-strong: rgba(150,180,255,0.18);
+    --text: #F6F1E8;
+    --text-muted: #8BA8C8;
+    --text-faint: #5A7A9E;
+    --gold: #F4B740;
+    --coral: #FF5A43;
+    --mint: #6FDFB8;
+    --radius: 14px;
+    --maxw: 800px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      linear-gradient(rgba(246,241,232,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(246,241,232,0.025) 1px, transparent 1px);
+    background-size: 64px 64px;
+    pointer-events: none; z-index: 0;
+    mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, black 20%, transparent 70%);
+  }
+
+  h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
+  a { color: var(--gold); text-decoration: none; transition: opacity 0.18s; }
+  a:hover { opacity: 0.8; }
+
+  /* ── HEADER ── */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    isolation: isolate;
+  }
+  header::before {
+    content: ''; position: absolute; inset: 0;
+    backdrop-filter: blur(14px);
+    background: rgba(7,15,26,0.88);
+    border-bottom: 1px solid var(--border);
+    z-index: -1;
+  }
+  .nav {
+    max-width: var(--maxw); margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: -0.01em; }
+  .logo span { color: var(--gold); }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--text-muted); font-size: 0.86rem; font-weight: 500;
+    transition: color 0.18s;
+  }
+  .back-link:hover { color: var(--text); opacity: 1; }
+  .back-link svg { width: 14px; height: 14px; }
+
+  /* ── LAYOUT ── */
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+  /* ── HERO ── */
+  .page-hero {
+    padding: 56px 0 48px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(244,183,64,0.04) 0%, transparent 100%);
+  }
+  .page-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--coral); margin-bottom: 16px;
+  }
+  .page-eyebrow::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--coral); box-shadow: 0 0 8px var(--coral);
+  }
+  .page-hero h1 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 12px; }
+  .page-hero .lead { font-size: 1rem; color: var(--text-muted); max-width: 560px; }
+  .updated-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--surface); border: 1px solid var(--border-strong);
+    border-radius: 100px; padding: 5px 14px; font-size: 0.78rem;
+    color: var(--text-faint); font-family: 'IBM Plex Mono', monospace;
+    margin-top: 20px;
+  }
+  .updated-badge::before { content: '🕐'; font-size: 0.85rem; }
+
+  /* ── TLDR ── */
+  .tldr {
+    margin: 40px 0 0;
+    background: linear-gradient(135deg, rgba(244,183,64,0.08) 0%, rgba(255,90,67,0.05) 100%);
+    border: 1px solid rgba(244,183,64,0.25); border-radius: var(--radius);
+    padding: 24px 28px;
+  }
+  .tldr-label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .tldr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .tldr-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 0.9rem; color: var(--text-muted);
+  }
+  .tldr-list li::before { content: '✓'; color: var(--mint); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  /* ── MAIN CONTENT ── */
+  main { padding: 56px 0 100px; }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  /* ── TABLE OF CONTENTS ── */
+  .toc {
+    position: sticky; top: 80px;
+  }
+  .toc-label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint);
+    margin-bottom: 14px;
+  }
+  .toc-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .toc-list a {
+    display: block; padding: 6px 10px; border-radius: 6px;
+    font-size: 0.82rem; color: var(--text-muted); transition: all 0.18s;
+    border-left: 2px solid transparent;
+  }
+  .toc-list a:hover { color: var(--text); background: var(--surface); opacity: 1; }
+  .toc-list a.active { color: var(--gold); border-left-color: var(--gold); background: rgba(244,183,64,0.06); }
+
+  /* ── ARTICLE ── */
+  .article { min-width: 0; }
+
+  .policy-section { margin-bottom: 52px; scroll-margin-top: 80px; }
+
+  .section-heading {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 18px; padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-icon {
+    width: 36px; height: 36px; border-radius: 9px;
+    background: rgba(244,183,64,0.1); border: 1px solid rgba(244,183,64,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+  .section-heading h2 { font-size: 1.15rem; color: var(--text); }
+
+  .article p { color: var(--text-muted); font-size: 0.93rem; margin-bottom: 12px; }
+  .article p:last-child { margin-bottom: 0; }
+
+  .article ul {
+    list-style: none; display: flex; flex-direction: column; gap: 8px;
+    margin-bottom: 14px;
+  }
+  .article ul li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 0.9rem; color: var(--text-muted);
+  }
+  .article ul li::before { content: '→'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .article ul li strong { color: var(--text); }
+
+  /* ── DATA CONTROLLER BOX ── */
+  .contact-box {
+    background: var(--surface); border: 1px solid var(--border-strong);
+    border-radius: var(--radius); padding: 20px 24px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px;
+  }
+  .contact-box-item { display: flex; flex-direction: column; gap: 2px; }
+  .contact-box-item .field-label { font-size: 0.72rem; color: var(--text-faint); font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 0.06em; }
+  .contact-box-item .field-value { font-size: 0.9rem; color: var(--text); }
+  .contact-box-item .field-value a { color: var(--gold); }
+  @media(max-width:500px){ .contact-box{ grid-template-columns:1fr; } }
+
+  /* ── THIRD PARTY CARDS ── */
+  .third-party-cards { display: flex; flex-direction: column; gap: 12px; margin-bottom: 14px; }
+  .tp-card {
+    background: var(--surface); border: 1px solid var(--border-strong);
+    border-radius: 10px; padding: 16px 20px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    transition: border-color 0.2s;
+  }
+  .tp-card:hover { border-color: rgba(244,183,64,0.3); }
+  .tp-card-name { font-weight: 600; font-size: 0.9rem; color: var(--text); }
+  .tp-card-desc { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+  .tp-card-link { font-size: 0.78rem; color: var(--gold); white-space: nowrap; flex-shrink: 0; }
+
+  /* ── RIGHTS GRID ── */
+  .rights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+  .right-item {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 16px;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .right-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .right-text { font-size: 0.83rem; color: var(--text-muted); line-height: 1.5; }
+  @media(max-width:500px){ .rights-grid{ grid-template-columns:1fr; } }
+
+  /* ── CONTACT CTA ── */
+  .contact-cta {
+    background: linear-gradient(135deg, rgba(111,223,184,0.08) 0%, rgba(244,183,64,0.06) 100%);
+    border: 1px solid rgba(111,223,184,0.2); border-radius: var(--radius);
+    padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    flex-wrap: wrap;
+  }
+  .contact-cta p { color: var(--text-muted); font-size: 0.88rem; margin: 0; }
+  .contact-cta a.cta-btn {
+    display: inline-block; background: var(--gold); color: #0A1628;
+    font-weight: 700; font-size: 0.85rem; padding: 10px 20px;
+    border-radius: 100px; white-space: nowrap; transition: opacity 0.18s;
+  }
+  .contact-cta a.cta-btn:hover { opacity: 0.88; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg-deep); border-top: 1px solid var(--border);
+    padding: 32px 0;
+  }
+  .footer-inner {
+    max-width: var(--maxw); margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; }
+  .footer-logo span { color: var(--gold); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { font-size: 0.82rem; color: var(--text-faint); }
+  .footer-links a:hover { color: var(--text-muted); opacity: 1; }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:760px){
+    .content-grid{ grid-template-columns:1fr; }
+    .toc{ display:none; }
+    .page-hero{ padding:40px 0 36px; }
+  }
+</style>
+<!-- Google Tag Manager — replace GTM-NLN6QQ8D with your own ID -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
+new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
+"https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,"script","dataLayer","GTM-NLN6QQ8D");<\/script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLN6QQ8D" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo">Emil KL<span>Media</span></a>
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 12L6 8l4-4"/></svg>
+      Back to home
+    </a>
+  </nav>
+</header>
+
+<div class="page-hero">
+  <div class="wrap">
+    <div class="page-eyebrow">Legal</div>
+    <h1>Privacy Policy</h1>
+    <p class="lead">We keep it simple: we only collect what we need, we never sell your data, and you're always in control.</p>
+    <div class="updated-badge">Last updated: 20 June 2026</div>
+
+    <div class="tldr">
+      <div class="tldr-label">TL;DR — the short version</div>
+      <ul class="tldr-list">
+        <li>We only collect your name and email when you contact us or book a call</li>
+        <li>We never sell or share your data with third parties for marketing</li>
+        <li>You can ask us to delete your data at any time</li>
+        <li>We use Formspree (contact form) and Cal.com (booking) — both GDPR-aware</li>
+        <li>No tracking cookies from us — only Cal.com's technical cookies when you book</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <div class="content-grid">
+
+      <!-- TABLE OF CONTENTS -->
+      <aside class="toc" aria-label="Table of contents">
+        <div class="toc-label">On this page</div>
+        <ul class="toc-list" id="tocList">
+          <li><a href="#controller">Data controller</a></li>
+          <li><a href="#collect">What we collect</a></li>
+          <li><a href="#usage">How we use it</a></li>
+          <li><a href="#third-party">Third-party services</a></li>
+          <li><a href="#retention">Retention</a></li>
+          <li><a href="#rights">Your rights</a></li>
+          <li><a href="#cookies">Cookies</a></li>
+          <li><a href="#changes">Changes</a></li>
+          <li><a href="#contact">Contact us</a></li>
+        </ul>
+      </aside>
+
+      <!-- ARTICLE -->
+      <article class="article">
+
+        <div class="policy-section" id="controller">
+          <div class="section-heading">
+            <div class="section-icon">🏢</div>
+            <h2>Data controller</h2>
+          </div>
+          <div class="contact-box">
+            <div class="contact-box-item">
+              <span class="field-label">Company</span>
+              <span class="field-value">EmilKLMedia</span>
+            </div>
+            <div class="contact-box-item">
+              <span class="field-label">Address</span>
+              <span class="field-value">Strandvejen 214</span>
+            </div>
+            <div class="contact-box-item">
+              <span class="field-label">Email</span>
+              <span class="field-value"><a href="mailto:emilklmedia@gmail.com">emilklmedia@gmail.com</a></span>
+            </div>
+            <div class="contact-box-item">
+              <span class="field-label">Phone</span>
+              <span class="field-value"><a href="tel:+4520825703">+45 20 82 57 03</a></span>
+            </div>
+            <div class="contact-box-item">
+              <span class="field-label">CVR</span>
+              <span class="field-value">46606175</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="policy-section" id="collect">
+          <div class="section-heading">
+            <div class="section-icon">📋</div>
+            <h2>What information we collect</h2>
+          </div>
+          <p>We only collect information you provide directly when you:</p>
+          <ul>
+            <li><strong>Fill in the contact form:</strong> name, email, optional company name and your message</li>
+            <li><strong>Book a call via the calendar:</strong> name, email and the time slot you select</li>
+          </ul>
+          <p>We do not collect any information passively, do not use analytics tracking, and do not create profiles on website visitors.</p>
+        </div>
+
+        <div class="policy-section" id="usage">
+          <div class="section-heading">
+            <div class="section-icon">🎯</div>
+            <h2>How we use your information</h2>
+          </div>
+          <p>We use your information solely to:</p>
+          <ul>
+            <li>Respond to your enquiry</li>
+            <li>Prepare and conduct a potential meeting</li>
+            <li>Follow up on a possible collaboration</li>
+          </ul>
+          <p>We never sell, rent or share your information with third parties for marketing or advertising purposes.</p>
+        </div>
+
+        <div class="policy-section" id="third-party">
+          <div class="section-heading">
+            <div class="section-icon">🔗</div>
+            <h2>Third-party services</h2>
+          </div>
+          <p>We use the following services to operate the website and handle enquiries. When you use the contact form or the calendar, your information is also processed by these providers:</p>
+          <div class="third-party-cards">
+            <div class="tp-card">
+              <div>
+                <div class="tp-card-name">Formspree</div>
+                <div class="tp-card-desc">Processes submissions from the contact form (name, email, message)</div>
+              </div>
+              <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer" class="tp-card-link">Privacy policy →</a>
+            </div>
+            <div class="tp-card">
+              <div>
+                <div class="tp-card-name">Cal.com</div>
+                <div class="tp-card-desc">Handles meeting booking (name, email, selected time slot)</div>
+              </div>
+              <a href="https://cal.com/privacy" target="_blank" rel="noopener noreferrer" class="tp-card-link">Privacy policy →</a>
+            </div>
+          </div>
+          <p>Both services are based in the USA, meaning your information may be processed outside the EU/EEA. Both operate under their own data protection terms and security measures.</p>
+        </div>
+
+        <div class="policy-section" id="retention">
+          <div class="section-heading">
+            <div class="section-icon">🗓️</div>
+            <h2>Retention</h2>
+          </div>
+          <p>We only retain your information for as long as necessary to respond to your enquiry or carry out a collaboration. If a client relationship is established, we may keep relevant records for the period required by Danish accounting legislation (currently 5 years).</p>
+        </div>
+
+        <div class="policy-section" id="rights">
+          <div class="section-heading">
+            <div class="section-icon">⚖️</div>
+            <h2>Your rights</h2>
+          </div>
+          <p>Under the General Data Protection Regulation (GDPR) you have the following rights:</p>
+          <div class="rights-grid">
+            <div class="right-item">
+              <span class="right-icon">👁️</span>
+              <span class="right-text"><strong style="color:var(--text)">Access</strong> — see what information we hold about you</span>
+            </div>
+            <div class="right-item">
+              <span class="right-icon">✏️</span>
+              <span class="right-text"><strong style="color:var(--text)">Correction</strong> — have inaccurate information corrected</span>
+            </div>
+            <div class="right-item">
+              <span class="right-icon">🗑️</span>
+              <span class="right-text"><strong style="color:var(--text)">Deletion</strong> — have your information deleted ("right to be forgotten")</span>
+            </div>
+            <div class="right-item">
+              <span class="right-icon">🚫</span>
+              <span class="right-text"><strong style="color:var(--text)">Object</strong> — object to our processing of your information</span>
+            </div>
+            <div class="right-item">
+              <span class="right-icon">📦</span>
+              <span class="right-text"><strong style="color:var(--text)">Portability</strong> — receive your data in a machine-readable format</span>
+            </div>
+            <div class="right-item">
+              <span class="right-icon">🏛️</span>
+              <span class="right-text"><strong style="color:var(--text)">Complaint</strong> — lodge a complaint with Datatilsynet (datatilsynet.dk)</span>
+            </div>
+          </div>
+          <div class="contact-cta">
+            <p>Want to exercise any of your rights? Just reach out — we'll respond within 5 business days.</p>
+            <a href="mailto:emilklmedia@gmail.com" class="cta-btn">Email us</a>
+          </div>
+        </div>
+
+        <div class="policy-section" id="cookies">
+          <div class="section-heading">
+            <div class="section-icon">🍪</div>
+            <h2>Cookies</h2>
+          </div>
+          <p>Our website does not use its own tracking cookies. We do not use Google Analytics, Facebook Pixel or any other analytics or advertising tracking tools directly on this site.</p>
+          <p>The Cal.com calendar widget, which appears as a pop-up when you choose to book a meeting, may set its own technical cookies to remember your selected time slot and session. See Cal.com's privacy policy for full details.</p>
+        </div>
+
+        <div class="policy-section" id="changes">
+          <div class="section-heading">
+            <div class="section-icon">🔄</div>
+            <h2>Changes to this policy</h2>
+          </div>
+          <p>We may update this privacy policy from time to time to reflect changes in how we operate or changes in legislation. The date at the top of this page shows when it was last updated. We recommend checking back periodically.</p>
+        </div>
+
+        <div class="policy-section" id="contact">
+          <div class="section-heading">
+            <div class="section-icon">✉️</div>
+            <h2>Contact us</h2>
+          </div>
+          <p>If you have any questions about this privacy policy or how we handle your data, please get in touch:</p>
+          <div class="contact-cta" style="margin-top:16px;">
+            <div>
+              <p style="margin-bottom:4px;"><a href="mailto:emilklmedia@gmail.com" style="color:var(--gold);font-weight:600;">emilklmedia@gmail.com</a></p>
+              <p><a href="tel:+4520825703" style="color:var(--text-muted);">+45 20 82 57 03</a></p>
+            </div>
+            <a href="index.html" class="cta-btn">Back to home</a>
+          </div>
+        </div>
+
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">Emil KL<span>Media</span></a>
+    <nav class="footer-links">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="privatliv.html">Privacy Policy</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // Active TOC link on scroll
+  const sections = document.querySelectorAll('.policy-section[id]');
+  const tocLinks = document.querySelectorAll('#tocList a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector('#tocList a[href="#' + entry.target.id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-60px 0px -60% 0px', threshold: 0 });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
