@@ -570,6 +570,7 @@
   .trusted-logo{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.1rem; color:var(--text-faint); letter-spacing:-0.03em; transition:color 0.2s; }
   .trusted-logo:hover{ color:var(--text-muted); }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -1158,7 +1159,7 @@
 
       <div class="form-card reveal">
         <div class="form-card-label">Or send a message</div>
-        <form id="contactForm" action="https://formspree.io/f/xeebjvpv" method="POST">
+        <form id="contactForm">
           <div class="field">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
@@ -1332,7 +1333,12 @@
   }, { threshold: 0.4 });
   countEls.forEach(el => countObserver.observe(el));
 
-  // Contact form — sender til Formspree (kobl til jeres egen formular-ID, se instruktioner)
+  // EmailJS — replace the three placeholder values below with your own from emailjs.com
+  const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // Account > API Keys
+  const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // Email Services tab
+  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // Email Templates tab
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
   const contactForm = document.getElementById('contactForm');
   const formConfirm = document.getElementById('formConfirm');
   const formError = document.getElementById('formError');
@@ -1345,17 +1351,8 @@
     formSubmitBtn.textContent = 'Sending...';
 
     try {
-      const response = await fetch(contactForm.action, {
-        method: 'POST',
-        body: new FormData(contactForm),
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        window.location.href = 'tak.html';
-      } else {
-        throw new Error('Formspree rejected the submission');
-      }
+      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm);
+      window.location.href = 'tak.html';
     } catch (err) {
       formError.classList.add('show');
       formSubmitBtn.disabled = false;
